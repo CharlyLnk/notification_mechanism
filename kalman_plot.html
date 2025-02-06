@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
+</head>
+<body>
+  <div id="plot"></div>
+  <script>
+    const data = [
+      {
+        x: Array.from({ length: 14 }, (_, i) => i),
+        y: [1,2,3.1,4.5,6,8.1,9.3,10.4,12.7,20.5,35.3,50.3,70.2,90.1],
+        mode: "markers",
+        name: "Mediciones",
+      },
+      {
+        x: Array.from({ length: 14 }, (_, i) => i),
+        y: ["1.00","2.00","3.07","4.35","5.79","7.66","9.22","10.54","12.39","17.75","29.13","43.87","62.91","83.95"],
+        mode: "lines",
+        name: "Posición estimada (Kalman)",
+      }
+    ];
+    const layout = {
+      title: "Filtro de Kalman: Estimación de posición",
+      xaxis: { title: "Tiempo" },
+      yaxis: { title: "Posición" },
+    };
+    Plotly.newPlot("plot", data, layout);
+  </script>
+</body>
+</html>
